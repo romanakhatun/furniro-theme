@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Furniro</title>
+
+    {{ content_for_header }}
+  </head>
+  <body>
+    <h1>Hello</h1>
+    {% sections 'header-group' %}
+    {{ content_for_layout }}
+    {% sections 'footer-group' %}
+  </body>
+</html>

@@ -1,0 +1,118 @@
+<script src="{{ 'menu-drawer.js' | asset_url }}" defer></script>
+<link rel="stylesheet" href="{{ 'header.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggleBtn = document.getElementById('menu-toggle');
+    const closeBtn = document.getElementById('close-menu');
+    const sidebar = document.getElementById('offcanvas-menu');
+
+    toggleBtn.addEventListener('click', function () {
+      sidebar.classList.add('active');
+    });
+
+    closeBtn.addEventListener('click', function () {
+      sidebar.classList.remove('active');
+    });
+  });
+</script>
+
+<header class="header">
+  <div class="logo-container">
+    <div class="logo">
+      <img
+        class="logo__image"
+        src="{{ 'logo.svg' | asset_url }}"
+        alt="{{ section.settings.logo_text }}"
+        width="100"
+        height="50"
+      >
+      <span class="logo__text">{{ section.settings.logo_text }}</span>
+    </div>
+    <button id="menu-toggle" class="hamburger" aria-label="Open Menu">☰</button>
+  </div>
+
+  <div id="offcanvas-menu" class="offcanvas__menu">
+    <div class="offcanvas__menu-header">
+      <span class="logo__text">{{ section.settings.logo_text }}</span>
+      <button id="close-menu" class="close-btn" aria-label="Close Menu">✕</button>
+    </div>
+
+    <nav class="menu-list menu-links">
+      <li>
+        <a href="{{ routes.root_url }}"> Home</a>
+      </li>
+      <li>
+        <a href="/shop.html">Shop</a>
+      </li>
+      <li>
+        <a href="/shop.html">Pages</a>
+      </li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </nav>
+    <nav class="menu-list menu-icons">
+      <li>
+        <a href="#">
+          {%- render 'icon-admin' %}
+          <span class="menu-text">Login</span></a
+        >
+      </li>
+      <li>
+        <a href="#">
+          {%- render 'icon-search' %}
+          <span class="menu-text">Search</span></a
+        >
+      </li>
+      <li>
+        <a href="#">
+          {%- render 'icon-love' %}
+          <span class="menu-text">Wishlist</span></a
+        >
+      </li>
+      <li>
+        <a href="#">
+          {%- render 'icon-cart' %}
+          <span class="menu-text">Cart</span></a
+        >
+      </li>
+    </nav>
+  </div>
+
+  <nav class="menu-list menu-links desktop-menu">
+    <li><a href="{{ routes.root_url }}">Home</a></li>
+    <li><a href="/shop.html">Shop</a></li>
+    <li><a href="/shop.html">Pages</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+  </nav>
+
+  <nav class="menu-list menu-icons desktop-menu">
+    <li>
+      <a href="#">{%- render 'icon-admin' %}</a>
+    </li>
+    <li>
+      <a href="#">{%- render 'icon-search' %}</a>
+    </li>
+    <li>
+      <a href="#">{%- render 'icon-love' %}</a>
+    </li>
+    <li>
+      <a href="#">{%- render 'icon-cart' %}</a>
+    </li>
+  </nav>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Logo Text",
+      "default": "Furniro"
+    }
+  ]
+}
+{% endschema %}

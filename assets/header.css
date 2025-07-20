@@ -1,0 +1,111 @@
+.logo-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo__image {
+  max-width: 100%;
+  width: 50px;
+  height: 32px;
+}
+
+.logo__text {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+}
+
+.hamburger,
+.close-btn {
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* offcanvas__menu Styles */
+.offcanvas__menu {
+  position: fixed;
+  top: 0;
+  left: 0px;
+  width: 80%;
+  height: 100%;
+  max-width: 300px;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 999;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* When active */
+.offcanvas__menu.active {
+  transform: translateX(0);
+}
+.close-btn {
+  text-align: right;
+}
+
+.offcanvas__menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 15px;
+}
+
+/* Menu items */
+.menu-list {
+  list-style: none;
+}
+
+.menu-list li {
+  border-bottom: 1px solid #25252517;
+  padding: 15px 20px;
+}
+
+.menu-list li a {
+  text-decoration: none;
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  color: #000;
+}
+.menu-links > li > a {
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu-icons li a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.menu-icons li a svg {
+  width: 1.5rem;
+}
+.desktop-menu {
+  display: none;
+}
+@media (min-width: 992px) {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+  }
+  .offcanvas__menu,
+  .hamburger {
+    display: none;
+  }
+  .desktop-menu {
+    display: flex;
+  }
+  .menu-list li {
+    border: none;
+  }
+}

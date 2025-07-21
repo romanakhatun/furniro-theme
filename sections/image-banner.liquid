@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="{{ 'image-banner.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<div class="banner-wrapper">
+  <div>
+    {% if section.settings.hero_image != blank %}
+      {{ section.settings.hero_image | image_url: width: 1000, height: 500 | image_tag: class: 'banner_image' }}
+    {% else %}
+      {{ 'hero-apparel-1' | placeholder_svg_tag: 'banner_image' }}
+    {% endif %}
+  </div>
+  <div class="banner-content">
+    <h4>New Arrivals</h4>
+    <h1>Discover Our New Collection</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.</p>
+    <a href="{{ routes.all_products_collection_url }}" class="btn">Buy Now</a>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Hero",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero"
+    }
+  ]
+}
+{% endschema %}

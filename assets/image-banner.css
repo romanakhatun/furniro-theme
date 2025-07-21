@@ -1,0 +1,50 @@
+.banner_image {
+  width: 100%;
+  min-height: 100svh;
+  object-fit: cover;
+}
+
+.banner-wrapper {
+  position: relative;
+}
+.banner-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  background: rgb(255, 243, 227);
+  padding: 62px 39px 37px 39px;
+  max-width: 600px;
+}
+
+.banner-content h4 {
+  color: rgb(51, 51, 51);
+  font-family: Poppins;
+  font-size: var(--font-btn);
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+
+.banner-content h1 {
+  font-size: var(--font-h1);
+  color: var(--primary-color);
+}
+.banner-content p {
+  font-size: var(--font-base);
+  color: rgb(51, 51, 51);
+  margin-bottom: 30px;
+}
+.banner-content .btn {
+  padding: 20px 35px;
+  color: #fff;
+  text-decoration: none;
+  font-size: var(--font-btn);
+  background-color: var(--primary-color);
+}
+
+@media (min-width: 992px) {
+  .banner-content {
+    transform: translate(-5%, -50%);
+  }
+}

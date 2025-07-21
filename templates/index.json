@@ -8,6 +8,16 @@
  * ------------------------------------------------------------
  */
 {
-  "sections": {},
-  "order": []
+  "sections": {
+    "image_banner_n7gADc": {
+      "type": "image-banner",
+      "name": "Hero",
+      "settings": {
+        "hero_image": "shopify://shop_images/home-hero.png"
+      }
+    }
+  },
+  "order": [
+    "image_banner_n7gADc"
+  ]
 }

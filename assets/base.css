@@ -1,3 +1,10 @@
+:root {
+  --font-btn: clamp(14px, 1.2vw, 16px);
+  --font-base: clamp(16px, 1.5vw, 18px);
+  --font-h1: clamp(32px, 5vw, 52px);
+  --primary-color: #b88e2f;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;

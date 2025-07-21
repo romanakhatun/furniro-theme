@@ -1,0 +1,31 @@
+{% for product in section.settings.products %}
+  <div>
+    {{ product.featured_image | image_url: width: 500, height: 500 | image_tag: class: 'featured_image_product' }}
+  </div>
+{% else %}
+  {% for i in (1..3) %}
+    {% assign placeholder_id = 'product-apparel-' | append: forloop.index %}
+    <div>
+      {{ placeholder_id | placeholder_svg_tag: 'featured_image_product' }}
+      <h3>Example Product {{ forloop.index }}</h3>
+      <p>{{ 1300 | money_with_currency }}</p>
+    </div>
+  {% endfor %}
+{% endfor %}
+{% schema %}
+{
+  "name": "Featured Product",
+  "settings": [
+    {
+      "type": "product_list",
+      "id": "products",
+      "label": "Add test product"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Product"
+    }
+  ]
+}
+{% endschema %}

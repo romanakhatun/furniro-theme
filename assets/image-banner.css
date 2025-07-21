@@ -16,6 +16,7 @@
   background: rgb(255, 243, 227);
   padding: 62px 39px 37px 39px;
   max-width: 600px;
+  width: calc(100% - 20px);
 }
 
 .banner-content h4 {
@@ -43,7 +44,7 @@
   background-color: var(--primary-color);
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1140px) {
   .banner-content {
     transform: translate(-5%, -50%);
   }

@@ -11,13 +11,14 @@
   "sections": {
     "image_banner_n7gADc": {
       "type": "image-banner",
-      "name": "Hero",
+      "name": "Image Banner",
       "settings": {
-        "hero_image": "shopify://shop_images/home-hero.png"
+        "hero_image": "shopify://shop_images/home-hero.png",
+        "banner_heading": "Discover Our New Collection",
+        "banner_subheading": "New Arrivals",
+        "banner_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis."
       }
     }
   },
-  "order": [
-    "image_banner_n7gADc"
-  ]
+  "order": ["image_banner_n7gADc"]
 }

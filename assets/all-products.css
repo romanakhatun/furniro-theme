@@ -1,0 +1,15 @@
+all-products .grid {
+  display: grid;
+  grid-template-columns: repeat(var(--items-per-row), 1fr);
+  gap: 32px;
+}
+all-products .show-more-button {
+  margin: 20px auto;
+  display: block;
+  padding: 12px 78px;
+  font-size: var(--font-base);
+  border: 1px solid rgb(184, 142, 47);
+  color: #b88e2fff;
+  background-color: transparent;
+  cursor: pointer;
+}

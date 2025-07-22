@@ -1,0 +1,71 @@
+<div>
+  <div class="">
+    <div class="">
+      <a class="" href="">Home</a>
+      {% render 'icon-greater' %}
+      <span>{{ product.title }}</span>
+    </div>
+
+    <div class="">
+      <div>
+        {% if product.images.size > 1 %}
+          <div class="product-slider">
+            {% for image in product.images %}
+              <img
+                src="{{ image | image_url: width: 500 }}"
+                alt="{{ product.title }}"
+                width=""
+                height=""
+              >
+            {% endfor %}
+          </div>
+        {% else %}
+          <img
+            src="{{ product.featured_image | image_url: width: 450 }}"
+            alt="{{ product.title }}"
+            width=""
+            height=""
+          >
+        {% endif %}
+      </div>
+
+      <div>
+        <h1 class="">{{ product.title }}</h1>
+        <h2 class="">{{ product.price | money }}</h2>
+        <p class="">{{ product.description }}</p>
+
+        {% form 'product', product %}
+          {% if product.variants.size > 1 %}
+            <select id="variant_id">
+              {% for variant in product.variants %}
+                <option value="{{ variant.id }}">{{ variant.title }}</option>
+              {% endfor %}
+            </select>
+            <br>
+
+          {% else %}
+            <input
+              type="hidden"
+              name="id"
+              id="variant_id"
+              value="{{ product.variants.first.id }}"
+            >
+
+            <input
+              type="hidden"
+              name="quantity"
+              class="quantity-input"
+              value="1"
+            >
+          {% endif %}
+
+          <div class="">
+            {% render 'stepper-number', type: 'product' %}
+            <button type="submit" class="button-style ">Add to cart</button>
+          </div>
+        {% endform %}
+      </div>
+    </div>
+  </div>
+</div>
+<script src="{{ 'add-to-cart.js' | asset_url }}" defer></script>

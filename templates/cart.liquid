@@ -1,0 +1,91 @@
+<div>
+  <div class="">
+    <div class="">
+      <a class="" href="">Home</a>
+      {% render 'icon-greater' %}
+      <span>{{ page_title }}</span>
+    </div>
+    <h1 class="">{{ page_title }}</h1>
+
+    {%- if cart.item_count != 0 -%}
+      <div class="">
+        <div class="">
+          <form action="{{ routes.cart_url }}" method="post">
+            {% for item in cart.items %}
+              {% if forloop.first == false %}
+                <div class=""></div>
+              {% endif %}
+
+              <div class="">
+                {% if item.image %}
+                  <img
+                    src="{{ item.image | image_url: width: 250}}"
+                    alt=""
+                    width=""
+                    height=""
+                  >
+                {% endif %}
+
+                <div>
+                  <h1>{{ item.title }}</h1>
+                  <p class="">{{ item.original_price | money_with_currency }}</p>
+                  <p>Item quantity : {{ item.quantity }}</p>
+                </div>
+
+                <div>
+                  <div class="">
+                    <a href="{{ item.url_to_remove }}"> Remove </a>
+                  </div>
+                  <div class=" ">
+                    {% render 'stepper-number', type: 'cart', quantity: item.quantity, item_key: item.key %}
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </form>
+        </div>
+
+        <div class=" ">
+          <div class="">Order Summery</div>
+          <div class="">
+            <p class="">Subtotal</p>
+            <h4 class="">{{ cart.items_subtotal_price | money }}</h4>
+          </div>
+          <div class="">
+            <p class="">Discount (-20%)</p>
+            <h4 class="">{{ cart.total_discount | money }}</h4>
+          </div>
+          <div
+            class=""
+          >
+            <p class="">Delivery Fee</p>
+            <h4 class="">
+              {% if cart.delivery_fee %}{{ cart.delivery_fee | money }}{% else %}Free{% endif %}
+            </h4>
+          </div>
+          <div class=""></div>
+          <div class="">
+            <p class=" ">Total</p>
+            <h4 class="">{{ cart.total_price | money }}</h4>
+          </div>
+          <form class="">
+            <div class="">
+              <input
+                class=""
+                name="search"
+                type="search"
+                placeholder="Add promo code"
+              >
+            </div>
+            <button class="">Apply</button>
+          </form>
+          <button class="">Go to Checkout</button>
+        </div>
+      </div>
+
+    {%- else -%}
+      <p>You Cart is Empty</p>
+      <a href="{{ routes.root_url }}">Return to Shop</a>
+    {%- endif -%}
+  </div>
+</div>

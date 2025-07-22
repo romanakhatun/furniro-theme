@@ -68,7 +68,7 @@
         >
       </li>
       <li>
-        <a href="#">
+        <a href="{{ routes.cart_url }}">
           {%- render 'icon-cart' %}
           <span class="menu-text">Cart</span></a
         >
@@ -95,7 +95,7 @@
       <a href="#">{%- render 'icon-love' %}</a>
     </li>
     <li>
-      <a href="#">{%- render 'icon-cart' %}</a>
+      <a href="{{ routes.cart_url }}">{%- render 'icon-cart' %}</a>
     </li>
   </nav>
 </header>

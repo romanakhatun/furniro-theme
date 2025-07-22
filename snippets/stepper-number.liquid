@@ -1,0 +1,53 @@
+<div class="stepper inline-flex items-center gap-5 bg-[#F0F0F0] py-3 px-5 rounded-full">
+  <button class="minus cursor-pointer text-3xl" type="button">-</button>
+  <span class="quantity font-bold">
+    {% if type == 'cart' %}
+      {{ quantity }}
+    {% else %}
+      1
+    {% endif %}
+  </span>
+  <button type="button" class="plus cursor-pointer text-2xl">+</button>
+
+  <input
+    class="w-40 bg-[#F0F0F0] py-4 text-center rounded-full focus:outline-0 quantity-input"
+    type="hidden"
+    min="1"
+    value="1"
+    name="{% if type == 'cart' %}updates[{{ item_key }}]{% else %}quantity{% endif %}"
+  >
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const steppers = document.querySelectorAll('.stepper');
+
+    steppers.forEach(function (stepper) {
+      const minusBtn = stepper.querySelector('.minus');
+      const plusBtn = stepper.querySelector('.plus');
+      const quantityDisplay = stepper.querySelector('.quantity');
+      const quantityInput = stepper.querySelector('.quantity-input');
+
+      let quantity = parseInt(quantityDisplay.textContent, 10);
+
+      minusBtn.addEventListener('click', function () {
+        if (quantity > 1) {
+          quantity--;
+          quantityDisplay.textContent = quantity;
+          quantityInput.value = quantity;
+          {% if type == 'cart' %} // form auto-submit
+            quantityInput.form.submit();
+          {% endif %}
+        }
+      });
+
+      plusBtn.addEventListener('click', function () {
+        quantity++;
+        quantityDisplay.textContent = quantity;
+        quantityInput.value = quantity;
+        {% if type == 'cart' %} // form auto-submit
+          quantityInput.form.submit();
+        {% endif %}
+      });
+    });
+  });
+</script>

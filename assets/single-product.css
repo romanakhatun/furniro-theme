@@ -1,0 +1,14 @@
+.single-product img {
+  width: 100%;
+  object-fit: cover;
+  height: auto;
+  max-width: 285px;
+  height: 300px;
+}
+
+.product-title a {
+  font-size: var(--font-md);
+  font-weight: 600;
+  color: rgb(58, 58, 58);
+  text-decoration: none;
+}

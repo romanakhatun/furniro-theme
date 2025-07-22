@@ -1,0 +1,54 @@
+<style>
+  all-products .grid {
+    display: grid;
+    grid-template-columns: repeat(var(--items-per-row, 4), minmax(0, 1fr));
+    gap: 32px;
+  }
+  all-products .show-more-button {
+    margin: 20px auto;
+    display: block;
+    padding: 12px 78px;
+    font-size: var(--font-base);
+    border: 1px solid rgb(184, 142, 47);
+    color: #b88e2fff;
+    background-color: transparent;
+    cursor: pointer;
+  }
+</style>
+
+<div class="section-container">
+  <h2 class="section-title">Our Products</h2>
+  <all-products>
+    <div class="grid" style="--items-per-row: {{ section.settings.products_per_row }};">
+      {% for product in collections.all.products limit: section.settings.products_per_row %}
+        {% render 'single-product', product: product %}
+      {% endfor %}
+    </div>
+    <button class="show-more-button">{{ section.settings.show_more_text }}</button>
+  </all-products>
+</div>
+
+{% schema %}
+{
+  "name": "All Products",
+  "settings": [
+    {
+      "type": "number",
+      "id": "products_per_row",
+      "label": "Products per row",
+      "default": 4
+    },
+    {
+      "type": "text",
+      "id": "show_more_text",
+      "label": "Show More Button Text",
+      "default": "Show More"
+    }
+  ],
+  "presets": [
+    {
+      "name": "All Products"
+    }
+  ]
+}
+{% endschema %}

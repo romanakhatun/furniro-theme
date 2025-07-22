@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="{{ 'single-product.css' | asset_url }}" type="text/css" media="all">
+
+<div class="single-product">
+  <a href="{{ product.url }}">
+    <img
+      class=""
+      src="{{ product.featured_image | image_url }}"
+      alt="{{ product.title }}"
+      width=""
+      height=""
+    >
+  </a>
+
+  <h3 class="product-title">
+    <a href="{{ product.url }}">{{ product.title }}</a>
+  </h3>
+  <div class="product-price">{{ product.price | money }}</div>
+</div>

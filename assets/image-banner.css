@@ -22,17 +22,17 @@
 .banner-content h4 {
   color: rgb(51, 51, 51);
   font-family: Poppins;
-  font-size: var(--font-btn);
+  font-size: var(--font-base);
   font-weight: 600;
   letter-spacing: 3px;
 }
 
 .banner-content h1 {
-  font-size: var(--font-h1);
+  font-size: var(--font-4xl);
   color: var(--primary-color);
 }
 .banner-content p {
-  font-size: var(--font-base);
+  font-size: var(--font-md);
   color: rgb(51, 51, 51);
   margin-bottom: 30px;
 }
@@ -40,7 +40,7 @@
   padding: 20px 35px;
   color: #fff;
   text-decoration: none;
-  font-size: var(--font-btn);
+  font-size: var(--font-base);
   background-color: var(--primary-color);
 }
 

@@ -16,9 +16,21 @@
         "hero_image": "shopify://shop_images/home-hero.png",
         "banner_heading": "Discover Our New Collection",
         "banner_subheading": "New Arrivals",
-        "banner_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis."
+        "banner_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.",
+        "url": "",
+        "url_text": "Buy Now"
+      }
+    },
+    "all_products_CgVbgJ": {
+      "type": "all-products",
+      "name": "All Products",
+      "settings": {
+        "products_per_row": 4
       }
     }
   },
-  "order": ["image_banner_n7gADc"]
+  "order": [
+    "image_banner_n7gADc",
+    "all_products_CgVbgJ"
+  ]
 }

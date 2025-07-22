@@ -98,6 +98,11 @@
       <a href="{{ routes.cart_url }}">{%- render 'icon-cart' %}</a>
     </li>
   </nav>
+
+  <div class="cart-drawer">
+    <button class="cart-drawer-close">Close</button>
+    <div id="cart-drawer-items"></div>
+  </div>
 </header>
 
 {% schema %}
